@@ -1,5 +1,5 @@
 from os.path import join, dirname
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 import os
 import flask
 import flask_sqlalchemy
@@ -15,18 +15,18 @@ app = flask.Flask(__name__)
 socketio = flask_socketio.SocketIO(app)
 socketio.init_app(app, cors_allowed_origins="*")
 
-dotenv_path = join(dirname(__file__), 'sql.env')
-load_dotenv(dotenv_path)
+#dotenv_path = join(dirname(__file__), 'sql.env')
+#load_dotenv(dotenv_path)
 
 # DATABASE
-sql_user = os.environ['SQL_USER']
-sql_pwd = os.environ['SQL_PASSWORD']
+#sql_user = os.environ['SQL_USER']
+#sql_pwd = os.environ['SQL_PASSWORD']
 # dbuser = os.environ['USER']
 
-database_uri = os.getenv("DATABASE_URL") # use this for heroku launch
+#database_uri = os.getenv("DATABASE_URL") # use this for heroku launch
 
-# database_uri = "postgresql://{}:{}@localhost/postgres".format(sql_user,sql_pwd) # use this for local testing
-app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
+#database_uri = "postgresql://{}:{}@localhost/postgres".format(sql_user,sql_pwd) # use this for local testing
+#app.config['SQLALCHEMY_DATABASE_URI'] = database_uri
 
 db = flask_sqlalchemy.SQLAlchemy(app)
 db.init_app(app)
